@@ -1,13 +1,12 @@
 <template>
-    <div style="position: absolute;right: 0;">
-        Dashboard
-        <svg-icon icon-class="bug" />
+    <div>
+        test
     </div>
 </template>
 
 <script>
     export default {
-        name: 'Dashboard',
+        name: 'Test',
         data() {
             return {
                 msg: 'Welcome to Your Vue.js App'
