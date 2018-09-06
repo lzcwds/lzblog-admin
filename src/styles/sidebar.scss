@@ -17,10 +17,14 @@
     }
     .scrollbar-wrapper{
       overflow-x: hidden !important;
-      background-color: $menuBg;
+      .el-scrollbar__view {
+        height: 100%;
+      }
     }
-    .el-menu{
-      width: 100%;
+    .el-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
     }
   }
 }
