@@ -1,5 +1,5 @@
 <template>
-    <div style="position: absolute;right: 0;">
+    <div>
         Dashboard
         <svg-icon icon-class="bug" />
     </div>
