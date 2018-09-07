@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-wrapper">
+    <div :class="classObj" class="app-wrapper">
         <sidebar class="sidebar-container"/>
         <div class="main-container">
             <navbar />
@@ -9,20 +9,32 @@
 </template>
 
 <script>
-    import Sidebar from './components/Sidebar'
-    import Navbar from "./components/navbar.vue";
-    export default {
-        name: 'Layout',
-        components:{
-            Navbar,
-            Sidebar
-        },
-        data() {
+import { mapGetters } from 'vuex'
+import Sidebar from './components/Sidebar'
+import Navbar from "./components/navbar.vue";
+export default {
+    name: 'Layout',
+    components:{
+        Navbar,
+        Sidebar
+    },
+    data() {
+        return {
+            msg:"asd"
+        }
+    },
+    computed:{
+        ...mapGetters([
+            'sidebar'
+        ]),
+        classObj(){
             return {
-                msg: 'Welcome to Your Vue.js App'
+                hideSidebar: !this.sidebar.opened,
+                openSidebar: this.sidebar.opened
             }
         }
     }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

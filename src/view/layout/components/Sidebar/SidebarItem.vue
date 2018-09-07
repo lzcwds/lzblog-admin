@@ -6,18 +6,19 @@
         <span slot="title">{{onlyOneChild.meta.title}}</span>
       </el-menu-item>
     </router-link>
+
+
     <el-submenu v-else :index="item.name||item.path">
       <template slot="title">
         <svg-icon :icon-class="item.meta.icon"/>
-        <span slot="title">{{item.meta.title}}</span>
+        <span>{{item.meta.title}}</span>
       </template>
-      <router-link v-for="child in item.children" :to="resolvePath(child.path)">
-        <el-menu-item :index="child.path">
+      <router-link v-for="child in item.children" :key="child.name" :to="resolvePath(child.path)">
+        <el-menu-item :index="child.name">
           <svg-icon :icon-class="child.meta.icon"/>
           <span slot="title">{{child.meta.title}}</span>
         </el-menu-item>
       </router-link>
-
     </el-submenu>
   </div>
 </template>

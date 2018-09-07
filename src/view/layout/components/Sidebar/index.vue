@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import {routerMap} from '@/router'
 import SidebarItem from "./SidebarItem.vue";
 export default {
@@ -21,8 +22,15 @@ export default {
     data(){
       return {
           routerMap,
-          isCollapse:false
       }
-  }
+    },
+    computed: {
+        ...mapGetters([
+            'sidebar'
+        ]),
+        isCollapse() {
+            return !this.sidebar.opened
+        }
+    }
 }
 </script>

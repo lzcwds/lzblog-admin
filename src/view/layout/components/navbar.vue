@@ -1,11 +1,12 @@
 <template>
     <div class="navbar clearfix">
-        <hamburger :toggle-click="toggleSideBar" :is-active="opened" class="hamburger-container"/>
+        <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
     </div>
 </template>
 
 <script>
-    import Hamburger from "../../../components/Hamburger/index.vue";
+    import { mapGetters } from 'vuex'
+    import Hamburger from "@/components/Hamburger/index.vue";
 
     export default {
         components: {Hamburger},
@@ -13,12 +14,16 @@
         data() {
             return {
                 msg: 'Welcome to Your Vue.js App',
-                opened:false
             }
+        },
+        computed:{
+            ...mapGetters([
+                'sidebar'
+            ])
         },
         methods:{
             toggleSideBar(){
-                this.opened = !this.opened;
+                this.$store.dispatch('toggleSideBar')
             },
         }
     }
