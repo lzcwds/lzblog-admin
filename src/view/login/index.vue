@@ -40,8 +40,10 @@
             };
         },
         methods: {
+//https://github.com/PanJiaChen/vue-element-admin.git
         }
     }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
