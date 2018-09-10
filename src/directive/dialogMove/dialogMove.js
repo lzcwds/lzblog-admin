@@ -2,8 +2,7 @@
  * Created by dy on 2018/9/10.
  *
  */
-import Vue from 'vue';
-Vue.directive('dialogmove', {
+export  default {
     //只调用一次,初始化使用
     //被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)
     inserted:(el,binding)=>{
@@ -36,4 +35,4 @@ Vue.directive('dialogmove', {
             return false;
         }
     }
-});
+};

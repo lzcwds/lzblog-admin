@@ -5,8 +5,12 @@
 </template>
 
 <script>
+    import dialogmove from '@/directive/dialogMove'
     export default {
         name: 'Test',
+        directives:{
+            dialogmove
+        },
         data() {
             return {
                 msg: 'Welcome to Your Vue.js App',
