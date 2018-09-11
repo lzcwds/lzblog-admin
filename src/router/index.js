@@ -14,6 +14,7 @@ export const routerMap = [
         path: '/',
         redirect: 'dashboard',
         component: Layout,
+        name:'Dashboard',
         children: [
             {
                 path: 'dashboard',
@@ -26,6 +27,7 @@ export const routerMap = [
         path:'/test',
         component:Layout,
         redirect: '/test/index',
+        name:'Test',
         meta:{title:'test',icon:'lock'},
         children:[
             {

@@ -4,7 +4,7 @@
         <sidebar class="sidebar-container"/>
         <div class="main-container">
             <navbar />
-            <router-view/>
+            <app-main />
         </div>
     </div>
 </template>
@@ -13,15 +13,16 @@
 import { mapGetters } from 'vuex'
 import Sidebar from './components/Sidebar'
 import Navbar from "./components/navbar.vue";
+import AppMain from "./components/appMain.vue";
 export default {
     name: 'Layout',
     components:{
+        AppMain,
         Navbar,
         Sidebar
     },
     data() {
         return {
-            msg:"asd"
         }
     },
     computed:{

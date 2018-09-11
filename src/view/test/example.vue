@@ -1,16 +1,20 @@
 <template>
     <div>
+        <markdown :width="300" :height="300"></markdown>
+
     </div>
 </template>
 
 <script>
+    import Markdown from '@/components/markdown'
     export default {
+        components: {Markdown},
         name: 'Example',
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+                html:''
             }
-        }
+        },
     }
 </script>
 
