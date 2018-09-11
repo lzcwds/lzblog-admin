@@ -1,6 +1,10 @@
 <template>
     <div class="navbar clearfix">
         <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+
+        <el-breadcrumb class="breadcrumb-container" separator-class="el-icon-arrow-right">
+            <el-breadcrumb-item v-for="item in levelList":key="item.path" :to="item.path">{{item.meta.title}}</el-breadcrumb-item>
+        </el-breadcrumb>
     </div>
 </template>
 
@@ -14,6 +18,8 @@
         data() {
             return {
                 msg: 'Welcome to Your Vue.js App',
+                levelList: []
+
             }
         },
         computed:{
@@ -21,10 +27,26 @@
                 'sidebar'
             ])
         },
+        watch: {
+            $route() {
+                this.getBreadcrumb()
+            }
+        },
+        created(){
+            this.getBreadcrumb()
+        },
         methods:{
             toggleSideBar(){
                 this.$store.dispatch('toggleSideBar')
             },
+            getBreadcrumb() {
+                let matched = this.$route.matched.filter(item => item.name)
+                const first = matched[0]
+                if (first && first.name.trim().toLocaleLowerCase() !== 'Dashboard'.toLocaleLowerCase()) {
+                    matched = [{ path: '/dashboard', meta: { title: 'dashboard' }}].concat(matched)
+                }
+                this.levelList = matched
+            }
         }
     }
 </script>
@@ -40,6 +62,10 @@
         height: 50px;
         float: left;
         padding: 0 10px;
+    }
+    .breadcrumb-container {
+        margin-left: 50px;
+        line-height: 50px;
     }
 }
 </style>

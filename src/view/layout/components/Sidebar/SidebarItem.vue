@@ -1,6 +1,6 @@
 <template>
   <div v-if="item.children" class="menu-wrapper">
-    <router-link v-if="hasOneChild(item.children)" :to="item.path">
+    <router-link v-if="hasOneChild(item.children)" :to="resolvePath(item.path)">
       <el-menu-item :index="onlyOneChild.name">
         <svg-icon :icon-class="onlyOneChild.meta.icon"/>
         <span slot="title">{{onlyOneChild.meta.title}}</span>
@@ -25,7 +25,7 @@
 
 <script>
 import path from 'path'
-
+import {mapGetters} from 'vuex'
 export default {
   name: 'SidebarItem',
   props: {
