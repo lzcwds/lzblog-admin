@@ -1,15 +1,17 @@
 <template>
     <div>
-        <div class="mark-toolbar">
-        </div>
+        <svg-icon iconClass="chart" />
     </div>
 </template>
 
 <script>
+    import SvgIcon from "../svgIcon/index.vue";
+
     export default {
+        components: {SvgIcon},
         name: 'MarkToolbar',
         props:{
-            toolbar:{
+            item:{
                 type:Array,
                 default: false
             }
@@ -24,7 +26,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/scss" lang="scss" scoped>
-.mark-toolbar{
 
-}
 </style>

@@ -1,0 +1,41 @@
+.markdown-container{
+  position: relative;
+  .mark-toolbar{
+    width: 100%;
+    background-color: #f9f9f9;
+    padding-left: 20px;
+    line-height: 50px;
+  }
+  .editor{
+    border:none;
+    background-color: #f1f1f1;
+    resize:none;
+    padding-left: 20px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .preview{
+    position: absolute;
+    left: 550px;
+    top: 50px;
+    .el-scrollbar__wrap {
+      overflow-x: hidden !important;
+      .el-scrollbar__view {
+        height: 100%;
+      }
+    }
+    .is-horizontal {
+      display: none;
+    }
+    .preview_container{
+      table,th,td{
+        border: 1.5px solid #ddd;
+        border-collapse: collapse;
+      }
+      th,td{
+        padding: 5px 10px;
+      }
+    }
+  }
+}

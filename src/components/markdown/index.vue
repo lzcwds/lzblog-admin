@@ -1,15 +1,20 @@
 <template>
-    <div>
-        <mark-toolbar />
-        <textarea :style="{width:width+'px',height:height+'px'}" v-model="html" class="markdown-container"></textarea>
-        <div v-html="tohtml"></div>
+    <div class="markdown-container">
+        <mark-toolbar  class="mark-toolbar" :item="toolbar"/>
+        <textarea resize="none" :style="{width:width+'px',height:height+'px'}" v-model="html" class="editor"></textarea>
+        <div class="preview">
+            <el-scrollbar :style="{height:height+'px'}">
+                <div class="preview_container" v-html="tohtml">
+                </div>
+            </el-scrollbar>
+        </div>
     </div>
 </template>
 
 <script>
     import marked from 'marked';
     import hljs from 'highlight.js'
-    import 'highlight.js/styles/monokai-sublime.css';
+    import 'highlight.js/styles/default.css';
     import MarkToolbar from "./toolbar.vue";
     export default {
         components: {MarkToolbar},
@@ -26,7 +31,8 @@
         },
         data() {
             return {
-                html:''
+                html:'',
+                toolbar:['bold','em']
             }
         },
         created(){
@@ -57,7 +63,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style rel="stylesheet/scss" lang="scss" scoped>
-.markdown-container{
 
-}
+
 </style>
