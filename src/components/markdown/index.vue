@@ -1,9 +1,9 @@
 <template>
-    <div class="markdown-container">
+    <div class="markdown-container" :style="{width:(width+25)*2+'px',height:(height+50)+'px'}">
         <mark-toolbar  class="mark-toolbar" :item="toolbar"/>
         <textarea resize="none" :style="{width:width+'px',height:height+'px'}" v-model="html" class="editor"></textarea>
-        <div class="preview">
-            <el-scrollbar :style="{height:height+'px'}">
+        <div class="preview" :style="{width:width+'px',height:height+'px'}">
+            <el-scrollbar :style="{width:width+'px',height:height+'px'}">
                 <div class="preview_container" v-html="tohtml">
                 </div>
             </el-scrollbar>
@@ -25,7 +25,6 @@
                 default: false
             },
             width:{
-                type: Number,
                 default: false
             }
         },

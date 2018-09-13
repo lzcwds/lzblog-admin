@@ -1,6 +1,6 @@
 <template>
     <div>
-        <markdown :width="500" :height="300"></markdown>
+        <markdown :width="400" :height="300"></markdown>
 
     </div>
 </template>
